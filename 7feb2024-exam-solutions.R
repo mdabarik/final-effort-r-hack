@@ -184,6 +184,96 @@ printAll <- function() {
 
 printAll()
 
+# 3(a)
+# Data
+data <- c(55, 76,70,68,67,83,63,67,69,70,80,71,59,61,75,74,72,77,70,57,81,78,71,71,89,75,70,76,60,64,73,67,64,72,64,67,77,64,72,68)
+
+# Histogram
+hist(data, main = "Histogram of Data", xlab = "Values", ylab = "Frequency", col = "skyblue", border = "white")
+
+# Density Plot
+plot(density(data), main = "Density Plot of Data", xlab = "Values", ylab = "Density", col = "blue")
+
+# Box Plot
+boxplot(data, main = "Boxplot of Data", ylab = "Values", col = "lightgreen", border = "brown", horizontal = TRUE)
+
+
+
+# 3(b)
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 3, 5, 4, 6)
+
+n = length(x)
+mean_x <- sum(x) / n
+mean_y <- sum(y) / n
+
+#  covariance
+cov_xy <- sum((x - mean_x) * (y - mean_y)) / (n - 1)
+
+# variance of x and y
+var_x <- sum((x - mean_x)^2) / (n - 1)
+var_y <- sum((y - mean_y)^2) / (n - 1)
+
+# Pearson correlation coefficient
+pearson_corr <- cov_xy / (sqrt(var_x) * sqrt(var_y))
+
+# regression coefficient (slope)
+beta <- cov_xy / var_x
+
+# Print results
+print(paste("Pearson correlation coefficient:", pearson_corr))
+print(paste("Regression coefficient (slope):", beta))
+
+# 3 (c)
+
+calculate_grade <- function(mark) {
+  if (mark >= 90) {
+    grade_point <- 4.0
+    letter_grade <- "A+"
+  } else if (mark >= 80) {
+    grade_point <- 4.0
+    letter_grade <- "A"
+  } else if (mark >= 70) {
+    grade_point <- 3.0
+    letter_grade <- "B"
+  } else if (mark >= 60) {
+    grade_point <- 2.0
+    letter_grade <- "C"
+  } else if (mark >= 50) {
+    grade_point <- 1.0
+    letter_grade <- "D"
+  } else {
+    grade_point <- 0.0
+    letter_grade <- "F"
+  }
+  
+  return(list(grade_point = grade_point, letter_grade = letter_grade))
+}
+
+# Example usage
+mark <- 85
+result <- calculate_grade(mark)
+cat("Grade Point:", result$grade_point, "\n")
+cat("Letter Grade:", result$letter_grade, "\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
