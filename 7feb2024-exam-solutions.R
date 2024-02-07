@@ -280,11 +280,59 @@ cat("CGPA:", cgpa, "\n")
 
 
 
+4 (b)
+
+
+# Generate 49 random observations from a Poisson distribution with mean 10
+X <- matrix(rpois(49, lambda = 10), nrow = 7, ncol = 7)
+
+# Calculate the inverse of X
+X_inv <- solve(X)
+
+# Compute the product of X and its inverse
+X_times_X_inv <- X %*% X_inv
+
+# Find the trace of X
+trace_X <- sum(diag(X))
+
+# Create matrix Z by deleting the 4th row and 7th column from X
+Z <- X[-4, -7]
+
+# Output
+print("Matrix X:")
+print(X)
+
+print("Inverse of X:")
+print(X_inv)
+
+print("Product of X and its inverse:")
+print(X_times_X_inv)
+
+cat("Trace of X:", trace_X, "\n")
+
+print("Matrix Z:")
+print(Z)
 
 
 
+4 (c)
+# Create matrix A filled row-wise with the given values
+A <- matrix(c(4.3, 4.4, 4.1, 
+              3.1, 3.2, 4.3, 
+              4.7, 3.2, 2.9, 
+              3.6, 4.7, 5.5), 
+            nrow = 4, ncol = 3, byrow = TRUE)
 
+# Replace specified elements with NA
+A[4, 3] <- NA
+A[2, 1] <- NA
 
+# Impute missing values by column means
+A[is.na(A)] <- colMeans(A, na.rm = TRUE)
+
+# Output matrix A after manipulation
+print("Matrix A after manipulation:")
+print(A)
 
 
 
