@@ -66,7 +66,7 @@ weightedMean = function(weights, values) {
   return (sumWiXi / sumWi);
 }
 
-getMean <- function(vector) {
+get_mean <- function(vector) {
   n = length(vector)
   sum = 0;
   for (value in vector) {
