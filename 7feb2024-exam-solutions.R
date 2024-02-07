@@ -135,10 +135,8 @@ get_mean <- function(vector) {
   return (sum / n)
 }
 
-arr = c(5,2,1,5,3,2,6,2,3)
-sort(arr)
-
 median <- function(vector) {
+  vector = sort(vector)
   n = length(vector);
   if (n %% 2 == 1) {
     index = floor(n/2) + 1;
