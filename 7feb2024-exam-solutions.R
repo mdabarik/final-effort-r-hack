@@ -79,8 +79,49 @@ variance <- function(dataset) {
   n <- length(dataset)
   mean <- get_mean(dataset)
   sqr_diff_sum <- sum((dataset - mean)^2) # Σ (xᵢ - μ)²
-  variance <- sqr_diff_sum / n
+  var <- sqr_diff_sum / n
   return(variance)
 }
+
+
+#2 (b)
+for (index in 1:n) { # 1:n is a vector
+  # iteration
+}
+
+# flowchart draw it
+
+# countAndPrint
+countAndPrint <- function(vector) {
+  count = 0
+  for (i in 1:length(vector)) {
+    if (vector[i] %% 2 == 0) {
+      count = count + 1;
+      evens[i] = vector[i];
+    }
+  }
+  if (count == 0) {
+    print("No even number exists.");
+    return ();
+  }
+  print("Count:");
+  print(count);
+  print("Even numbers");
+  print(evens);
+}
+
+countAndPrint(c(1,2,3,4,5,6))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
