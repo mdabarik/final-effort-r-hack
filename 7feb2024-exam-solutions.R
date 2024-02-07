@@ -97,30 +97,94 @@ countAndPrint <- function(vector) {
   for (i in 1:length(vector)) {
     if (vector[i] %% 2 == 0) {
       count = count + 1;
-      evens[i] = vector[i];
     }
   }
   if (count == 0) {
     print("No even number exists.");
     return ();
   }
+  evens = seq(1, count)
+  index = 1
+  for (i in vector) {
+    if (i %% 2 == 0) {
+      evens[index] = i;
+      index = index + 1;
+    }
+  }
+  
   print("Count:");
   print(count);
   print("Even numbers");
   print(evens);
 }
 
-countAndPrint(c(1,2,3,4,5,6))
+countAndPrint(c(1,3,3,5,7))
 
 
+2 (b)
+write a R functions that prints out mean, standard deviation, IQR and coefficient of variation without using any builtin functions. 
 
 
+get_mean <- function(vector) {
+  # size of the given vector
+  n = length(vector)
+  sum = 0;
+  for (value in vector) {
+    sum = sum + value
+  }
+  return (sum / n)
+}
+
+arr = c(5,2,1,5,3,2,6,2,3)
+sort(arr)
+
+median <- function(vector) {
+  n = length(vector);
+  if (n %% 2 == 1) {
+    index = floor(n/2) + 1;
+    return(vector[index]);
+  }
+  index1 = n/2
+  index2 = (n/2) + 1
+  med = (vector[index1] + vector[index2]) / 2;
+  return (med);
+}
+
+variance <- function(dataset) {
+  n <- length(dataset)
+  mean <- get_mean(dataset)
+  sqr_diff_sum <- sum((dataset - mean)^2) # Σ (xᵢ - μ)²
+  var <- sqr_diff_sum / n
+  return(var)
+}
 
 
+IQR <- function(x) {
+  Q3 <- quantile(x, 0.75)  # Calculate the third quartile
+  Q1 <- quantile(x, 0.25)  # Calculate the first quartile
+  IQR_value <- Q3 - Q1  # Calculate the Interquartile Range
+  return(IQR_value)
+}
 
+# Define a function to calculate the Coefficient of Variation
+cv <- function(x) {
+  mean_value <- get_mean(x)  # Calculate the mean
+  sd_value <- sqrt(sum((x - mean_value)^2) / (length(x) - 1))  # Calculate the standard deviation
+  coefficient_of_variation <- (sd_value / mean_value) * 100  # Calculate the Coefficient of Variation
+  return(coefficient_of_variation)
+}
 
+printAll <- function() {
+  vector = c(1,2,3,4,5,6,7,8,9,10)
+  print(get_mean(vector))
+  print(median(vector))
+  standard_deviation = variance(vector) ^ 0.5
+  print(standard_deviation)
+  print(IQR(vector))
+  print(cv(vector))
+}
 
-
+printAll()
 
 
 
