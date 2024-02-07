@@ -342,3 +342,73 @@ print(A)
 
 
 
+
+
+5(a)
+dims <- c(4, 3, 4)
+
+values <- 1:prod(dims)
+
+array_data <- array(values, dim = dims)
+
+print(array_data)
+
+
+
+
+
+
+
+5(b)
+# Create a sample array (just for demonstration)
+dims <- c(4, 3, 4)
+values <- 1:prod(dims)
+array_data <- array(values, dim = dims)
+
+# Extract the 3rd and 2nd rows from the 3rd layer of the array
+X <- array_data[c(3, 2), , 3]
+
+# Assign row names
+rownames(X) <- c("row3", "row2")
+
+# Output the matrix X
+print(X)
+
+5 (c)
+names <- c("Dhaka", "Rajshahi", "Khulna", "Barishal", "Rangpur")
+values <- c(13, 18, 9, 7, 15)
+
+# Create the pie chart
+pie(values, labels = paste(names, "(", round(values/sum(values) * 100, 1), "%)"), col = rainbow(length(values)))
+
+# Add legend
+legend("topright", names, fill = rainbow(length(values)))
+
+# Add title
+title("Population Distribution")
+
+# Add percentage values
+pct <- round(values/sum(values) * 100, 1)
+text(1, 1, paste(names, "(", pct, "%)"), adj = c(0.5, 0.5), cex = 0.8)
+
+# Show the plot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
