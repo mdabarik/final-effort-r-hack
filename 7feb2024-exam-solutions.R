@@ -189,7 +189,7 @@ printAll()
 data <- c(55, 76,70,68,67,83,63,67,69,70,80,71,59,61,75,74,72,77,70,57,81,78,71,71,89,75,70,76,60,64,73,67,64,72,64,67,77,64,72,68)
 
 # Histogram
-hist(data, main = "Histogram of Data", xlab = "Values", ylab = "Frequency", col = "skyblue", border = "white")
+hist(data=data, main = "Histogram of Data", xlab = "Values", ylab = "Frequency")
 
 # Density Plot
 plot(density(data), main = "Density Plot of Data", xlab = "Values", ylab = "Density", col = "blue")
@@ -258,8 +258,25 @@ cat("Letter Grade:", result$letter_grade, "\n")
 
 
 
+# 4 (a)
+credit = c(3,3,2,2,1)
+grade = c(3.5,4,3.5,4,3)
+compute_cgpa <- function(credit, grade) {
+  if (length(credit) != length(grade)) {
+    stop("invalid input")
+  }
+  
+  total_credit <- sum(credit)
+  weighted_sum <- sum(credit * grade)
+  
+  cgpa <- weighted_sum / total_credit
+  
+  return(cgpa)
+}
 
 
+cgpa <- compute_cgpa(credit, grade)
+cat("CGPA:", cgpa, "\n")
 
 
 
